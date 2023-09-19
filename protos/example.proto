@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option go_package = ".";
+
+package proto;
+
+import "google/protobuf/timestamp.proto";
+
+service DataProcess {
+  rpc SendData (DataRequest) returns (DataResponse) {}
+}
+
+message DataRequest {
+  string name = 1;
+}
+
+message DataResponse {
+  string message = 1;
+  string name = 2;
+  int32 age = 3;
+  float height = 4;
+  bool isMarried = 5;
+  google.protobuf.Timestamp record = 6;
+}
